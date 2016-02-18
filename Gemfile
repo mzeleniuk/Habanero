@@ -44,6 +44,7 @@ group :development do
 end
 
 gem 'sass', '~> 3.4.21'
+gem 'bower-rails'
 
 group :test, :development do
   gem 'rspec-rails', '~> 3.4.2'
