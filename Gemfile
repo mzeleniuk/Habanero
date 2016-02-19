@@ -53,3 +53,6 @@ group :test, :development do
   gem 'database_cleaner'
   gem 'selenium-webdriver'
 end
+
+# Test coverage
+gem 'simplecov', require: false, group: :test

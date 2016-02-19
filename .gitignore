@@ -16,3 +16,4 @@
 /.idea
 
 /config/dblocal.yml
+/coverage
