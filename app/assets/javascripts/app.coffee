@@ -1,0 +1,1 @@
+Habanero = angular.module('Habanero', [])
