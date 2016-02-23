@@ -1,5 +1,7 @@
 # Habanero
 
+[![Circle CI](https://circleci.com/gh/mzelenyuk/Habanero/tree/master.svg?style=svg&circle-token=50ad48b066f0992d942576e8a06850bff7705992)](https://circleci.com/gh/mzelenyuk/Habanero/tree/master)
+
 Habanero is an Angular application to manage recipes, running with Rails.
 The application is a store of recipes that can be searched.
 A recipe is a title, short description and some text representing the instructions.
