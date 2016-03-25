@@ -1,15 +1,5 @@
 <div class="container-fluid" ng-app="Habanero">
-  <div class="panel panel-success">
-    <div class="panel-heading">
-      <h1>Habanero</h1>
-      <h2 ng-if="name">Hello, {{name}}</h2>
-    </div>
-    <div class="panel-body">
-      <form class="form-inline">
-        <div class="form-group">
-          <input class="form-control" type="text" placeholder="Enter your name" autofocus ng-model="name">
-        </div>
-      </form>
-    </div>
+  <div class="view-container">
+    <div ng-view class="view-frame animate-view"></div>
   </div>
 </div>

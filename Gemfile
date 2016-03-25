@@ -39,6 +39,7 @@ end
 
 gem 'sass', '~> 3.4.21'
 gem 'bower-rails'
+gem 'angular-rails-templates'
 
 group :test, :development do
   gem 'rspec-rails', '~> 3.4.2'
