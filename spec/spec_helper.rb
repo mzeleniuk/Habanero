@@ -19,6 +19,7 @@
 
 require 'simplecov'
 require 'codeclimate-test-reporter'
+require 'capybara/rspec'
 
 # Save to CircleCI's artifacts directory if we're on CircleCI
 if ENV['CIRCLE_ARTIFACTS']
@@ -53,8 +54,28 @@ RSpec.configure do |config|
     mocks.verify_partial_doubles = true
   end
 
-# The settings below are suggested to provide a good initial experience
-# with RSpec, but feel free to customize to your heart's content.
+  config.before(:suite) do
+    DatabaseCleaner.clean_with :truncation
+    DatabaseCleaner.clean_with :transaction
+  end
+
+  config.after(:each) do
+    ActionMailer::Base.deliveries.clear
+  end
+
+  config.around(:each, type: :feature, js: true) do |ex|
+    DatabaseCleaner.strategy = :truncation
+    DatabaseCleaner.start
+
+    self.use_transactional_fixtures = false
+    ex.run
+    self.use_transactional_fixtures = true
+
+    DatabaseCleaner.clean
+  end
+
+  # The settings below are suggested to provide a good initial experience
+  # with RSpec, but feel free to customize to your heart's content.
 =begin
   # These two settings work together to allow you to limit a spec run
   # to individual examples or groups you care about by tagging them with
