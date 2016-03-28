@@ -14,9 +14,9 @@ Ruby 2.2.1
 
 ## System dependencies
 
-Rails 4.2.5.1
+Rails 4.2.6
 
-Angular 1.5.0
+Angular 1.5.2
 
 ## Database creation
 
