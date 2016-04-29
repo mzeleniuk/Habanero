@@ -55,4 +55,3 @@ describe "RecipeController", ->
         httpBackend.flush()
 
         expect(scope.recipe).toBe(null)
-        expect(flash.error).toBe("There is no recipe with ID #{recipeId}")

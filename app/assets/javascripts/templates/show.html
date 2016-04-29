@@ -1,3 +1,9 @@
+<aside class="flash row" style="padding-top: 20px;">
+  <article flash-alert duration="0" active-class="alert" class="col-md-6 col-md-offset-3 col-sm-12">
+    {{flash.message}}
+  </article>
+</aside>
+
 <section class="col-md-6 col-md-offset-3">
   <article class="panel panel-success">
     <header class="panel-heading">
@@ -5,8 +11,11 @@
     </header>
 
     <section class="panel-body">
-      <p>{{recipe.description}}</p>
-      <hr>
+      <section ng-if="recipe.description">
+        <p>{{recipe.description}}</p>
+        <hr>
+      </section>
+
       <p>{{recipe.instructions}}</p>
     </section>
   </article>
