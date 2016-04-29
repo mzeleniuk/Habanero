@@ -2,7 +2,9 @@ Habanero = angular.module('Habanero', [
   'templates',
   'ngRoute',
   'ngResource',
-  'controllers'
+  'controllers',
+  'angular-flash.service',
+  'angular-flash.flash-alert-directive'
 ])
 
 Habanero.config(['$routeProvider',
