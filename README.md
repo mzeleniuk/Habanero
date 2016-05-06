@@ -24,4 +24,4 @@ Run `rake db:setup` in console.
 
 ## How to run the test suite
 
-Run `bundle exec rspec` in console.
+Run `bundle exec rspec` and `bundle exec teaspoon` in console.
