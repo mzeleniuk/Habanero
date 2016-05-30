@@ -4,12 +4,12 @@ RSpec.describe RecipesController, type: :controller do
   render_views
 
   describe 'index' do
-    before do
-      Recipe.create!(name: 'Baked Potato w/ Cheese', instructions: 'Test instruction.')
-      Recipe.create!(name: 'Garlic Mashed Potatoes', instructions: 'Test instruction.')
-      Recipe.create!(name: 'Potatoes Au Gratin', instructions: 'Test instruction.')
-      Recipe.create!(name: 'Baked Brussel Sprouts', instructions: 'Test instruction.')
+    let!(:first_recipe) { create :recipe, name: 'Baked Potato w/ Cheese' }
+    let!(:second_recipe) { create :recipe, name: 'Garlic Mashed Potatoes' }
+    let!(:third_recipe) { create :recipe, name: 'Potatoes Au Gratin' }
+    let!(:fourth_recipe) { create :recipe, name: 'Baked Brussel Sprouts' }
 
+    before do
       xhr :get, :index, format: :json, keywords: keywords
     end
 
@@ -64,10 +64,8 @@ RSpec.describe RecipesController, type: :controller do
     subject(:results) { JSON.parse(response.body) }
 
     context 'when the recipe exists' do
-      let(:recipe) {
-        Recipe.create!(name: 'Baked Potato w/ Cheese',
-                       instructions: 'Nuke for 20 minutes; top with cheese')
-      }
+      let(:recipe) { create :recipe, name: 'Baked Potato w/ Cheese',
+                            instructions: 'Nuke for 20 minutes; top with cheese' }
       let(:recipe_id) { recipe.id }
 
       it { expect(response.status).to eq(200) }
@@ -95,10 +93,8 @@ RSpec.describe RecipesController, type: :controller do
   end
 
   describe 'update' do
-    let(:recipe) {
-      Recipe.create!(name: 'Baked Potato w/ Cheese',
-                     instructions: 'Nuke for 20 minutes; top with cheese')
-    }
+    let(:recipe) { create :recipe, name: 'Baked Potato w/ Cheese',
+                          instructions: 'Nuke for 20 minutes; top with cheese' }
 
     before do
       xhr :put, :update, format: :json, id: recipe.id, recipe: {name: 'Toast',
@@ -112,16 +108,14 @@ RSpec.describe RecipesController, type: :controller do
   end
 
   describe 'destroy' do
-    let(:recipe_id) {
-      Recipe.create!(name: 'Baked Potato w/ Cheese',
-                     instructions: 'Nuke for 20 minutes; top with cheese').id
-    }
+    let(:recipe) { create :recipe, name: 'Baked Potato w/ Cheese',
+                          instructions: 'Nuke for 20 minutes; top with cheese' }
 
     before do
-      xhr :delete, :destroy, format: :json, id: recipe_id
+      xhr :delete, :destroy, format: :json, id: recipe.id
     end
 
     it { expect(response.status).to eq(204) }
-    it { expect(Recipe.find_by_id(recipe_id)).to be_nil }
+    it { expect(Recipe.find_by_id(recipe.id)).to be_nil }
   end
 end

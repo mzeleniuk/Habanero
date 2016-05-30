@@ -20,6 +20,7 @@
 require 'simplecov'
 require 'codeclimate-test-reporter'
 require 'capybara/rspec'
+require 'factory_girl'
 
 # Save to CircleCI's artifacts directory if we're on CircleCI
 if ENV['CIRCLE_ARTIFACTS']
@@ -53,6 +54,8 @@ RSpec.configure do |config|
     # `true` in RSpec 4.
     mocks.verify_partial_doubles = true
   end
+
+  config.include FactoryGirl::Syntax::Methods
 
   config.before(:suite) do
     DatabaseCleaner.clean_with :truncation

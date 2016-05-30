@@ -1,13 +1,9 @@
 require 'spec_helper.rb'
 
 feature 'Viewing a recipe', js: true do
-  before do
-    Recipe.create!(name: 'Baked Potato w/ Cheese',
-                   instructions: 'nuke for 20 minutes')
-
-    Recipe.create!(name: 'Baked Brussel Sprouts',
-                   instructions: 'Slather in oil, and roast on high heat for 20 minutes')
-  end
+  let!(:first_recipe) { create :recipe, name: 'Baked Potato w/ Cheese', instructions: 'nuke for 20 minutes' }
+  let!(:second_recipe) { create :recipe, name: 'Baked Brussel Sprouts',
+                                instructions: 'Slather in oil, and roast on high heat for 20 minutes' }
 
   scenario 'view one recipe' do
     visit '/'

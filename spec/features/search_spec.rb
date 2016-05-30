@@ -1,12 +1,9 @@
 require 'rails_helper'
 
 feature 'Looking up recipes', js: true do
-  before do
-    Recipe.create!(name: 'Baked Potato w/ Cheese', instructions: 'Test instruction 1.')
-    Recipe.create!(name: 'Garlic Mashed Potatoes', instructions: 'Test instruction 2.')
-    Recipe.create!(name: 'Potatoes Au Gratin', instructions: 'Test instruction 3.')
-    Recipe.create!(name: 'Baked Brussel Sprouts', instructions: 'Test instruction 4.')
-  end
+  let!(:first_recipe) { create :recipe, name: 'Baked Potato w/ Cheese' }
+  let!(:second_recipe) { create :recipe, name: 'Garlic Mashed Potatoes' }
+  let!(:third_recipe) { create :recipe, name: 'Baked Brussel Sprouts' }
 
   scenario 'finding recipes' do
     visit '/'
