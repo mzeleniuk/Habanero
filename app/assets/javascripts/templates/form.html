@@ -4,15 +4,17 @@
   </article>
 </aside>
 
-<form class="form-horizontal" role="form" class="edit-user" name="form" novalidate>
-  <div class="form-group" ng-class="{'has-error has-feedback':errors.name, 'has-success has-feedback': form.name.$valid}">
-    <label for="name" class="col-md-2 control-label col-md-offset-2">
-      Name
-    </label>
+<form name="form" role="form" class="form-horizontal edit-user" novalidate>
+  <div class="form-group" ng-class="{
+    'has-error has-feedback': form.name.$invalid && form.name.$touched,
+    'has-success has-feedback': form.name.$valid
+  }">
+
+    <label for="name" class="control-label col-md-2 col-md-offset-2">Name</label>
 
     <div class="col-md-5">
-      <input type="text" name="name" class="form-control" placeholder="e.g. Baked Alaska" ng-model="recipe.name"
-             ng-maxlength="70" ng-minlength="2" required="">
+      <input type="text" name="name" id="name" class="form-control" placeholder="e.g. Baked Alaska"
+             ng-model="recipe.name" ng-maxlength="70" ng-minlength="2" required>
 
       <div ng-show="form.$submitted || form.name.$touched || form.name.$dirty">
         <div ng-show="form.name.$error.required">
@@ -23,13 +25,17 @@
 
         <div ng-show="form.name.$error.maxlength">
           <p class="help-block">
-            <span class="text-danger" ng-show="form.name.$error.maxlength">Sorry but You are exceeding the limit of 70 characters</span>
+            <span class="text-danger" ng-show="form.name.$error.maxlength">
+              Sorry but You are exceeding the limit of 70 characters
+            </span>
           </p>
         </div>
 
         <div ng-show="form.name.$error.minlength">
           <p class="help-block">
-            <span class="text-danger" ng-show="form.name.$error.minlength">Recipe Name should contain at least 2 characters</span>
+            <span class="text-danger" ng-show="form.name.$error.minlength">
+              Recipe Name should contain at least 2 characters
+            </span>
           </p>
         </div>
       </div>
@@ -37,17 +43,19 @@
       <div ng-show="form.name.$valid">
         <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
       </div>
+
+      <div ng-show="form.name.$invalid && form.name.$touched">
+        <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+      </div>
     </div>
   </div>
 
   <div class="form-group" ng-class="{'has-success has-feedback': form.description.$valid && form.description.$dirty}">
-    <label for="description" class="col-md-2 control-label col-md-offset-2">
-      Description
-    </label>
+    <label for="description" class="control-label col-md-2 col-md-offset-2">Description</label>
 
     <div class="col-md-5">
-      <textarea name="description" class="form-control" ng-model="recipe.description" rows="3"
-                placeholder="Some tasty meal">
+      <textarea name="description" id="description" class="form-control" rows="3" placeholder="Some tasty meal"
+                ng-model="recipe.description">
       </textarea>
 
       <div ng-show="form.description.$untouched">
@@ -62,14 +70,16 @@
     </div>
   </div>
 
-  <div class="form-group" ng-class="{'has-error has-feedback':errors.instructions, 'has-success has-feedback': form.instructions.$valid}">
-    <label for="instructions" class="col-md-2 control-label col-md-offset-2">
-      Instructions
-    </label>
+  <div class="form-group" ng-class="{
+    'has-error has-feedback': form.instructions.$invalid && form.instructions.$touched,
+    'has-success has-feedback': form.instructions.$valid
+  }">
+
+    <label for="instructions" class="control-label col-md-2 col-md-offset-2">Instructions</label>
 
     <div class="col-md-5">
-      <textarea name="instructions" class="form-control" ng-model="recipe.instructions" rows="5"
-                placeholder="e.g. Flambé for 20 seconds" ng-minlength="10" required="">
+      <textarea name="instructions" id="instructions" class="form-control" rows="5"
+                placeholder="e.g. Flambé for 20 seconds" ng-model="recipe.instructions" ng-minlength="10" required>
       </textarea>
 
       <div ng-show="form.$submitted || form.instructions.$touched || form.instructions.$dirty">
@@ -81,13 +91,19 @@
 
         <div ng-show="form.instructions.$error.minlength">
           <p class="help-block">
-            <span class="text-danger" ng-show="form.instructions.$error.minlength">The Instruction should contain at least 10 characters</span>
+            <span class="text-danger" ng-show="form.instructions.$error.minlength">
+              The Instruction should contain at least 10 characters
+            </span>
           </p>
         </div>
       </div>
 
       <div ng-show="form.instructions.$valid">
         <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+      </div>
+
+      <div ng-show="form.instructions.$invalid && form.instructions.$touched">
+        <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
       </div>
     </div>
   </div>
