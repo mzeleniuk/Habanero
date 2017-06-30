@@ -14,7 +14,7 @@ Ruby 2.2.1
 
 ## System dependencies
 
-Rails 4.2.6
+Rails 4.2.9
 
 Angular 1.5.5
 
