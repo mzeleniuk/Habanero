@@ -1,11 +1,11 @@
 source 'https://rubygems.org'
-ruby '2.2.1'
+ruby '2.5.7'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.9'
+gem 'rails', '4.2.11.1'
 
 # Use postgresql as the database for Active Record
-gem 'pg', '~> 0.15'
+gem 'pg', '~> 0.21'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -62,5 +62,5 @@ group :production, :staging do
   gem 'rails_12factor'
   gem 'rails_stdout_logging'
   gem 'rails_serve_static_assets'
-  gem 'puma'
+  gem 'puma', '3.12.4'
 end

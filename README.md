@@ -1,20 +1,16 @@
 # Habanero
 
-[![Code Climate](https://codeclimate.com/github/mzelenyuk/Habanero/badges/gpa.svg)](https://codeclimate.com/github/mzelenyuk/Habanero)
-[![Test Coverage](https://codeclimate.com/github/mzelenyuk/Habanero/badges/coverage.svg)](https://codeclimate.com/github/mzelenyuk/Habanero/coverage)
-[![Circle CI](https://circleci.com/gh/mzelenyuk/Habanero/tree/master.svg?style=svg&circle-token=50ad48b066f0992d942576e8a06850bff7705992)](https://circleci.com/gh/mzelenyuk/Habanero/tree/master)
-
 Habanero is an Angular application to manage recipes, running with Rails.
 The application is a store of recipes that can be searched.
 A recipe is a title, short description and some text representing the instructions.
 
 ## Ruby version
 
-Ruby 2.2.1
+Ruby 2.5.7
 
 ## System dependencies
 
-Rails 4.2.9
+Rails 4.2.11.1
 
 Angular 1.5.5
 
